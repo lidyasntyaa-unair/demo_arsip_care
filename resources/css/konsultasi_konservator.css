@@ -1,0 +1,452 @@
+/* ==========================================
+   RESET & BASE STYLES
+   ========================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #F8FAFC;
+  color: #0B2240;
+  line-height: 1.6;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   NAVBAR (FULL WIDTH & CONSISTENT STYLING)
+   ========================================== */
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1.2rem 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.brand-logo img {
+  height: 50px; /* Diperbesar dari 42px */
+  width: auto;
+  border-radius: 6px;
+}
+
+.brand-title {
+  display: block;
+  font-weight: 800;
+  font-size: 1.45rem; /* Diperbesar dari 1.25rem */
+  color: #0B2240;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  display: block;
+  font-size: 0.9rem; /* Diperbesar dari 0.75rem */
+  color: #64748B;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: 1.15rem; /* Diperbesar dari 1rem */
+  transition: all 0.3s ease;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #34AC98;
+  background-color: #E6F7F4;
+}
+
+
+/* ==========================================
+   CHAT APPLICATION LAYOUT (FULL SCREEN)
+   ========================================== */
+.chat-app-container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  min-height: calc(100vh - 75px);
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background-color: #0B2240;
+  color: #FFFFFF;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-new-chat {
+  background-color: #34AC98;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-new-chat:hover {
+  background-color: #2B9382;
+}
+
+.sidebar-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.chat-history-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0.6rem;
+  padding: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-bottom: 0.5rem;
+}
+
+.chat-history-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.chat-history-item strong {
+  display: block;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat-history-item small {
+  display: block;
+  font-size: 0.75rem;
+  color: #94A3B8;
+  margin-top: 0.25rem;
+}
+
+/* Main Chat Content (Expanded & Responsive) */
+.chat-main-content {
+  flex: 1;
+  background-color: #F8FAFC;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* Sub-header Asisten Konservator */
+.conservator-sub-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #E2E8F0;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.sub-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.asisten-logo {
+  height: 40px;
+  width: auto;
+}
+
+.sub-header-left h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0B2240;
+}
+
+.sub-header-left p {
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+.btn-export-pdf {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748B;
+  border: 1px solid #CBD5E1;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-export-pdf:hover {
+  background: #F1F5F9;
+  color: #0B2240;
+}
+
+/* Hero Section */
+.chat-hero {
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 2.5rem;
+}
+
+.chat-hero h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0B2240;
+  margin-bottom: 0.5rem;
+}
+
+.chat-hero p {
+  font-size: 1.05rem;
+  color: #64748B;
+}
+
+/* Quick Prompts Grid (Penyesuaian Lebar & Responsif) */
+.quick-prompts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 2rem;
+}
+
+.prompt-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.85rem;
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.prompt-card:hover {
+  border-color: #34AC98;
+  box-shadow: 0 6px 16px rgba(52, 172, 152, 0.12);
+  transform: translateY(-2px);
+}
+
+.prompt-icon {
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.prompt-card p {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Category Pills */
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.pill-tag {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 2rem;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-tag:hover {
+  background: #E6F7F4;
+  border-color: #34AC98;
+  color: #34AC98;
+}
+
+/* Chat Input Bar */
+.chat-input-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.chat-form {
+  display: flex;
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 0.85rem;
+  padding: 0.5rem 0.6rem 0.5rem 1.25rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease;
+}
+
+.chat-form:focus-within {
+  border-color: #34AC98;
+}
+
+.chat-form input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: #0B2240;
+  background: transparent;
+}
+
+.btn-send {
+  background: #34AC98;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.6rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-send:hover {
+  background: #2B9382;
+}
+
+/* ==========================================
+   FOOTER STYLING
+   ========================================== */
+.footer {
+  background: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+  padding: 2.5rem 3rem;
+  margin-top: auto;
+  width: 100%;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================== */
+@media (max-width: 1024px) {
+  .chat-main-content {
+    padding: 1.5rem 1.5rem;
+  }
+  
+  .quick-prompts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.85rem 1rem;
+  }
+
+  .chat-app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .conservator-sub-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .btn-export-pdf {
+    width: 100%;
+    text-align: center;
+  }
+
+  .chat-hero h2 {
+    font-size: 1.4rem;
+  }
+
+  .chat-hero p {
+    font-size: 0.9rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,268 @@
+/* ==========================================
+   RESET & VARIABLE BASE STYLES
+   ========================================== */
+:root {
+  --brand-dark: #0B2240;
+  --brand-teal: #34AC98;
+  --brand-light-teal: #E6F7F4;
+  --brand-light-bg: #F8FAFC;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--brand-light-bg);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+/* ==========================================
+   CONTAINER FULL WIDTH & FLUID
+   ========================================== */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 3.5rem); /* Padding otomatis menyesuaikan lebar layar */
+}
+
+/* ==========================================
+   NAVBAR RESPONSIVE
+   ========================================== */
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1.2rem 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.brand-logo img {
+  height: 50px; /* Diperbesar dari 42px */
+  width: auto;
+  border-radius: 6px;
+}
+
+.brand-title {
+  display: block;
+  font-weight: 800;
+  font-size: 1.45rem; /* Diperbesar dari 1.25rem */
+  color: #0B2240;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  display: block;
+  font-size: 0.9rem; /* Diperbesar dari 0.75rem */
+  color: #64748B;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: 1.15rem; /* Diperbesar dari 1rem */
+  transition: all 0.3s ease;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #34AC98;
+  background-color: #E6F7F4;
+}
+
+/* ==========================================
+   KATALOG HEADER & BANNER
+   ========================================== */
+.catalog-header {
+  text-align: center;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.catalog-title {
+  font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+  font-weight: 800;
+  color: var(--brand-dark);
+  margin-bottom: 0.5rem;
+}
+
+.catalog-subtitle {
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  color: var(--text-muted);
+}
+
+/* ==========================================
+   GRID KATALOG PRODUK (INTERAKTIF & FULL-WIDTH)
+   ========================================== */
+.catalog-grid {
+  display: grid;
+  /* Mengisi layar secara otomatis, menyesuaikan jumlah kolom berdasarkan lebar layar */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.product-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.product-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #F1F5F9;
+  overflow: hidden;
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-teal);
+  background-color: var(--brand-light-teal);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.product-title {
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.product-price {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-weight: 800;
+  color: #D97706; /* Atau warna aksen lain */
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.btn-shopee {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #EE4D2D; /* Warna resmi Shopee */
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-shopee:hover {
+  background-color: #d73d1d;
+}
+
+/* ==========================================
+   FOOTER RESPONSIVE
+   ========================================== */
+.footer {
+  background-color: #F1F5F9;
+  border-top: 1px solid var(--border-color);
+  padding: 2.5rem 0;
+  margin-top: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+/* ==========================================
+   MEDIA QUERIES (DESKTOP, TABLET, MOBILE)
+   ========================================== */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 Kolom di Smartphone */
+    gap: 0.75rem;
+  }
+
+  .product-info {
+    padding: 0.85rem;
+  }
+}

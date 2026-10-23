@@ -1,0 +1,496 @@
+/* ==========================================
+   1. VARIABLES & CSS RESET
+   ========================================== */
+:root {
+  --brand-dark: #0B2240;
+  --brand-teal: #34AC98;
+  --brand-teal-hover: #2B9382;
+  --brand-teal-light: #E6F7F4;
+  --brand-bg: #F8FAFC;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+  --white: #FFFFFF;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--brand-bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden; /* Mencegah overflow horizontal pada layar kecil */
+}
+
+/* ==========================================
+   2. FLUID CONTAINER (FULL WIDTH RESPONSIVE)
+   ========================================== */
+.container {
+  width: 100%;
+  max-width: 1440px; /* Batas aman optimum agar tidak terlalu renggang di layar TV/4K */
+  margin: 0 auto;
+  padding-left: clamp(1rem, 4vw, 3rem);
+  padding-right: clamp(1rem, 4vw, 3rem);
+}
+
+/* ==========================================
+   3. NAVBAR SERAGAM & RESPONSIF
+   ========================================== */
+.navbar {
+  width: 100%;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.75rem 0;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  text-decoration: none;
+}
+
+.brand-logo img {
+  height: clamp(36px, 4vw, 50px);
+  width: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.brand-title {
+  display: block;
+  font-weight: 800;
+  font-size: clamp(1rem, 1.5vw, 1.45rem);
+  color: var(--brand-dark);
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  display: block;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  color: var(--text-muted);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2.5rem);
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 1.1vw, 1.15rem);
+  transition: all 0.2s ease;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--brand-teal);
+  background-color: var(--brand-teal-light);
+}
+
+.nav-links a.active {
+  font-weight: 800;
+}
+
+/* ==========================================
+   4. BUTTONS & BADGES (INTERAKTIF & PROPORSIONAL)
+   ========================================== */
+.btn-primary,
+.btn-submit-main {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  background-color: var(--brand-teal);
+  color: var(--white);
+  padding: clamp(0.8rem, 1.2vw, 1.05rem) clamp(1.5rem, 2.5vw, 2rem);
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(52, 172, 152, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-submit-main {
+  width: 100%;
+}
+
+.btn-primary:hover,
+.btn-submit-main:hover {
+  background-color: var(--brand-teal-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(52, 172, 152, 0.4);
+}
+
+.badge-tag,
+.raw-badge {
+  background: var(--brand-teal-light);
+  color: var(--brand-teal);
+  font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+  font-weight: 800;
+  padding: 0.45rem 0.9rem;
+  border-radius: 50px;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.raw-badge {
+  background-color: var(--brand-teal);
+  color: var(--white);
+  border-radius: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 0;
+}
+
+/* File Status Card Specifics */
+.file-status-card {
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.file-info-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.btn-change-file {
+  background: transparent;
+  border: none;
+  color: #EF4444;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: opacity 0.2s ease;
+}
+
+.btn-change-file:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ==========================================
+   5. HERO SECTION
+   ========================================== */
+.hero {
+  width: 100%;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  background: var(--white);
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.hero-title {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--brand-dark);
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+}
+
+.hero-desc {
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  margin-bottom: 1.8rem;
+  line-height: 1.6;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.stat-val {
+  display: block;
+  font-size: clamp(1.2rem, 2vw, 1.75rem);
+  font-weight: 800;
+  color: var(--brand-dark);
+}
+
+.stat-lbl {
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* Hero Image & Floating Card */
+.hero-img-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.hero-img {
+  width: 100%;
+  height: clamp(300px, 45vw, 560px);
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  display: block;
+}
+
+.floating-card {
+  position: absolute;
+  bottom: clamp(12px, 2vw, 25px);
+  left: clamp(12px, 2vw, 25px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: clamp(0.6rem, 1.2vw, 1rem) clamp(0.8rem, 1.5vw, 1.4rem);
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.floating-circle {
+  background: var(--brand-teal-light);
+  color: var(--brand-teal);
+  font-weight: 800;
+  width: clamp(36px, 4vw, 48px);
+  height: clamp(36px, 4vw, 48px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   6. SECTIONS, CARDS & GRIDS
+   ========================================== */
+.restorasi-section,
+.paths-section {
+  width: 100%;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  background-color: var(--brand-bg);
+}
+
+.comparison-section {
+  width: 100%;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  background: var(--white);
+  border-top: 1px solid #F1F5F9;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto clamp(2rem, 4vw, 3.5rem) auto;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  color: var(--brand-dark);
+  font-weight: 800;
+  margin: 0.6rem 0;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+}
+
+.ba-grid,
+.comp-grid,
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  width: 100%;
+}
+
+.ba-card,
+.path-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.ba-card img,
+.path-card img {
+  width: 100%;
+  height: clamp(240px, 30vw, 450px);
+  object-fit: cover;
+  display: block;
+}
+
+.ba-card-body,
+.path-card-body {
+  padding: clamp(1.2rem, 2vw, 2rem);
+  flex-grow: 1;
+}
+
+.ba-card-body h4,
+.path-card-body h3 {
+  font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+  margin-top: 0.6rem;
+  color: var(--brand-dark);
+}
+
+.ba-card-body p,
+.path-card-body p {
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  color: var(--text-muted);
+}
+
+.comp-card {
+  background: var(--brand-bg);
+  padding: clamp(1.5rem, 2.5vw, 2.5rem);
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+}
+
+.comp-card.bad {
+  border-top: 5px solid #EF4444;
+}
+
+.comp-card.good {
+  border-top: 5px solid var(--brand-teal);
+}
+
+.comp-list {
+  list-style: none;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.comp-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 2.2rem;
+}
+
+.comp-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2rem;
+}
+
+.comp-title {
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  color: var(--brand-dark);
+}
+
+.comp-desc {
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  color: var(--text-muted);
+}
+
+/* ==========================================
+   7. BOTTOM BANNER & MEDIA QUERIES
+   ========================================== */
+.bottom-banner {
+  background: var(--brand-dark);
+  color: var(--white);
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 4rem);
+  border-radius: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.bottom-banner h3 {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.bottom-banner p {
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  color: #94A3B8;
+}
+
+/* Tablet & Mobile Enhancements */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-around;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .nav-links a {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .bottom-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bottom-banner .btn-primary {
+    width: 100%;
+  }
+
+  .file-status-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

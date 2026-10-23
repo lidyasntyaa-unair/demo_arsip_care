@@ -1,0 +1,537 @@
+/* ==========================================
+   RESET & LAYOUT DASAR (FULL WIDTH & FLEX)
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #F8FAFC;
+  color: #0B2240;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   CONTAINER & NAVBAR
+   ========================================== */
+.container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0 2rem;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1.2rem 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.brand-logo img {
+  height: 50px; /* Diperbesar dari 42px */
+  width: auto;
+  border-radius: 6px;
+}
+
+.brand-title {
+  display: block;
+  font-weight: 800;
+  font-size: 1.45rem; /* Diperbesar dari 1.25rem */
+  color: #0B2240;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  display: block;
+  font-size: 0.9rem; /* Diperbesar dari 0.75rem */
+  color: #64748B;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: 1.15rem; /* Diperbesar dari 1rem */
+  transition: all 0.3s ease;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #34AC98;
+  background-color: #E6F7F4;
+}
+
+/* ==========================================
+   APPLICATION LAYOUT (MEMENUHI LAYAR)
+   ========================================== */
+.chat-app-container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+}
+
+/* Sidebar Kiri */
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  background-color: #0B2240;
+  color: #FFFFFF;
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.btn-new-chat {
+  background-color: #34AC98;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0.6rem;
+  padding: 0.85rem 1.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn-new-chat:hover {
+  background-color: #2b9180;
+  transform: translateY(-1px);
+}
+
+.sidebar-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.chat-history-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.6rem;
+  padding: 0.9rem;
+  cursor: pointer;
+  margin-bottom: 0.6rem;
+  transition: background 0.2s ease;
+}
+
+.chat-history-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.chat-history-item.active {
+  background: rgba(52, 172, 152, 0.2);
+  border-left: 4px solid #34AC98;
+}
+
+.chat-history-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+}
+
+.chat-history-item small {
+  display: block;
+  font-size: 0.75rem;
+  color: #94A3B8;
+  margin-top: 0.25rem;
+}
+
+/* Area Utama Chat (Full Flex Expand) */
+.chat-main-content {
+  flex: 1;
+  width: 100%;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Wrapper Hasil Konsultasi (Mengisi Area Utama) */
+.consultation-result-wrapper {
+  width: 100%;
+  max-width: 1200px; /* Diperlebar agar memanfaatkan area layar */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ==========================================
+   KOMPONEN KONSULTASI & STATUS BAR
+   ========================================== */
+.conservator-status-bar {
+  width: 100%;
+  background: #0F172A;
+  border-radius: 0.85rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar-badge {
+  background: #34AC98;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 0.65rem;
+  border-radius: 0.6rem;
+}
+
+.status-title {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.status-subtitle {
+  display: block;
+  color: #94A3B8;
+  font-size: 0.8rem;
+  margin-top: 0.15rem;
+}
+
+.badge-status {
+  background: rgba(234, 179, 8, 0.2);
+  color: #FACC15;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
+  border-radius: 0.35rem;
+  margin-left: 0.5rem;
+}
+
+.status-bar-right {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-outline-sm {
+  background: transparent;
+  border: 1px solid #334155;
+  color: #CBD5E1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.45rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-sm:hover {
+  background: #1E293B;
+  color: #FFFFFF;
+}
+
+/* Gelembung Chat User */
+.user-chat-bubble {
+  background: #0B2240;
+  color: #FFFFFF;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  width: 100%;
+}
+
+.uploaded-file-card {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0.6rem;
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+}
+
+.uploaded-file-card strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.uploaded-file-card small {
+  font-size: 0.8rem;
+  color: #CBD5E1;
+}
+
+/* Card Diagnosa Kuratorial */
+.curatorial-response-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.warning-box {
+  background: #FEF3C7;
+  border: 1px solid #FDE047;
+  border-radius: 0.75rem;
+  padding: 1.2rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.warning-box strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #854D0E;
+  margin-bottom: 0.25rem;
+}
+
+.warning-box p {
+  font-size: 0.9rem;
+  color: #713F12;
+  line-height: 1.5;
+}
+
+.diagnosis-content {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #334155;
+  margin-bottom: 1.75rem;
+}
+
+.recommendation-list {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.recommendation-list li {
+  margin-bottom: 0.75rem;
+}
+
+/* ==========================================
+   KARTU LABORATORIUM & GRID PROPORSI
+   ========================================== */
+.lab-offer-card {
+  background: linear-gradient(180deg, #E6F4F1 0%, #D8ECE8 100%);
+  border: 1px solid #BCE0D8;
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.lab-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: #0D5C4D;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.4rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.lab-offer-card h3 {
+  font-size: 1.5rem;
+  color: #0B2240;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.lab-description {
+  font-size: 1.05rem;
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.service-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.feature-item {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  padding: 1.1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.feature-title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0B2240;
+  margin-bottom: 0.4rem;
+}
+
+.feature-item small {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748B;
+  line-height: 1.4;
+}
+
+.action-btn-wrapper {
+  margin-bottom: 1rem;
+}
+
+.btn-order-conservator {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #0D5C4D;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 1.1rem;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(13, 92, 77, 0.25);
+}
+
+.btn-order-conservator:hover {
+  background: #094439;
+  transform: translateY(-2px);
+}
+
+.lab-footer-note {
+  font-size: 0.85rem;
+  color: #475569;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ==========================================
+   FOOTER STYLING
+   ========================================== */
+.footer {
+  background: #FFFFFF;
+  border-top: 1px solid #E2E8F0;
+  padding: 2.5rem 0;
+  margin-top: auto;
+  width: 100%;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+}
+
+/* ==========================================
+   RESPONSIVE (DESKTOP KECIL, TABLET & MOBILE)
+   ========================================== */
+
+/* Laptop / Monitor sedang */
+@media (max-width: 1200px) {
+  .chat-main-content {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+/* Tablet (Layar <= 900px) */
+@media (max-width: 900px) {
+  .chat-app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .service-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .conservator-status-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .status-bar-right {
+    width: 100%;
+  }
+
+  .status-bar-right .btn-outline-sm {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* Smartphone (Layar <= 600px) */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .navbar-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .chat-main-content {
+    padding: 1rem 0.75rem;
+  }
+
+  .curatorial-response-card,
+  .lab-offer-card {
+    padding: 1.25rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

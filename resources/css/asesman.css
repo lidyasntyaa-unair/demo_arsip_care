@@ -1,0 +1,471 @@
+:root {
+  --brand-dark: #0B2240;
+  --brand-teal: #34AC98;
+  --brand-teal-hover: #2B9382;
+  --brand-teal-light: #E6F7F4;
+  --brand-light-bg: #F8FAFC;
+}
+
+/* ==========================================
+   RESET & BASE STYLES
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--brand-light-bg);
+  color: #1E293B;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   CONTAINER FULL WIDTH (Sama seperti index.css)
+   ========================================== */
+.container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0 3rem; /* Padding kanan-kiri pas untuk layar lebar */
+}
+
+/* ==========================================
+   NAVBAR (FONT & UKURAN DIPERBESAR)
+   ========================================== */
+.navbar {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1.2rem 0;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.brand-logo img {
+  height: 50px;
+  width: auto;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+.brand-title {
+  display: block;
+  font-weight: 800;
+  font-size: 1.45rem;
+  color: var(--brand-dark);
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  display: block;
+  font-size: 0.9rem;
+  color: #64748B;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: 1.15rem;
+  transition: all 0.3s ease;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+  color: var(--brand-teal);
+  background-color: var(--brand-teal-light);
+}
+
+.nav-links a.active {
+  font-weight: 800;
+}
+
+/* ==========================================
+   MAIN LAYOUT GRID (FULL WIDTH)
+   ========================================== */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding: 3rem 0;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .main-layout {
+    grid-template-columns: 2fr 1fr; /* Porsi main content & sidebar seimbang */
+  }
+}
+
+/* ==========================================
+   CARD STYLING
+   ========================================== */
+.card-section {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.card-title-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--brand-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.step-num {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--brand-dark);
+  color: #FFFFFF;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+/* ==========================================
+   DROPZONE UPLOAD
+   ========================================== */
+.upload-dropzone {
+  display: block;
+  border: 2px dashed #A7F3D0;
+  background-color: #ECFDF5;
+  border-radius: 1rem;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.upload-dropzone:hover {
+  background-color: #D1FAE5;
+  border-color: var(--brand-teal);
+  transform: translateY(-2px);
+}
+
+.upload-icon-wrapper {
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--brand-teal);
+  color: #FFFFFF;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 12px rgba(52, 172, 152, 0.3);
+}
+
+/* ==========================================
+   CHECKLIST KERUSAKAN FISIK
+   ========================================== */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .checkbox-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.checkbox-card {
+  padding: 1.25rem 1.25rem;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.85rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+  background-color: #F8FAFC;
+  transition: all 0.2s ease;
+}
+
+.checkbox-card:hover {
+  border-color: var(--brand-teal);
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.checkbox-card input[type="checkbox"] {
+  margin-top: 0.25rem;
+  accent-color: var(--brand-teal);
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.checkbox-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1E293B;
+  display: block;
+}
+
+.checkbox-desc {
+  font-size: 0.875rem;
+  color: #64748B;
+  display: block;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   FORM IDENTIFIKASI TIPOLOGI
+   ========================================== */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid #CBD5E1;
+  border-radius: 0.65rem;
+  font-size: 1rem;
+  color: #1E293B;
+  background-color: #F8FAFC;
+  transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--brand-teal);
+  background-color: #FFFFFF;
+}
+
+/* ==========================================
+   TOMBOL ANALISIS UTAMA
+   ========================================== */
+.btn-submit-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  background-color: var(--brand-teal);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.15rem;
+  padding: 1.15rem;
+  border-radius: 0.85rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(52, 172, 152, 0.35);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  margin-top: 1.5rem;
+}
+
+.btn-submit-main:hover {
+  background-color: var(--brand-teal-hover);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   SIDEBAR RIGHT
+   ========================================== */
+.sidebar-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--brand-dark);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.guide-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.guide-item {
+  display: flex;
+  gap: 0.85rem;
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.guide-num {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--brand-teal-light);
+  color: var(--brand-teal);
+  font-weight: 800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.security-box {
+  background-color: var(--brand-dark);
+  color: #FFFFFF;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+}
+
+.security-list {
+  list-style: none;
+  font-size: 0.85rem;
+  color: #94A3B8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* ==========================================
+   FOOTER (SAMA SEPERTI BOOKLET & INDEX)
+   ========================================== */
+.footer {
+  background-color: #F1F5F9;
+  border-top: 1px solid #E2E8F0;
+  padding: 4rem 0;
+  margin-top: 4rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+}
+
+.footer-title {
+  font-weight: 800;
+  color: var(--brand-dark);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: #64748B;
+}
+
+.footer-links a {
+  color: #64748B;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--brand-teal);
+}
+
+/* ==========================================
+   RESPONSIVE & MOBILE OPTIMIZATION
+   ========================================== */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 1.5rem; /* Menyesuaikan padding saat di layar HP/Tablet */
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .upload-dropzone {
+    padding: 2.5rem 1rem;
+  }
+
+  .btn-submit-main {
+    font-size: 1.05rem;
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,413 @@
+/* ==========================================
+   RESET & BASE STYLES
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   CONTAINER FULL WIDTH
+   ========================================== */
+.container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0;
+  padding: 0 3rem; /* Padding kanan-kiri yang pas untuk layar lebar */
+}
+
+/* ==========================================
+   NAVBAR (FONT LEBIH BESAR)
+   ========================================== */
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1.2rem 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.brand-logo img {
+  height: 50px; /* Diperbesar dari 42px */
+  width: auto;
+  border-radius: 6px;
+}
+
+.brand-title {
+  display: block;
+  font-weight: 800;
+  font-size: 1.45rem; /* Diperbesar dari 1.25rem */
+  color: #0B2240;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  display: block;
+  font-size: 0.9rem; /* Diperbesar dari 0.75rem */
+  color: #64748B;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: 1.15rem; /* Diperbesar dari 1rem */
+  transition: all 0.3s ease;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #34AC98;
+  background-color: #E6F7F4;
+}
+
+/* ==========================================
+   BUTTONS & BADGES (FONT LEBIH BESAR)
+   ========================================== */
+.btn-primary {
+  background-color: #34AC98;
+  color: #ffffff;
+  padding: 1.05rem 2rem; /* Tombol dibuat lebih tebal */
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.15rem; /* Diperbesar dari 0.95rem */
+  display: inline-block;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 14px rgba(52, 172, 152, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #2b9180;
+  transform: translateY(-2px);
+}
+
+.badge-tag {
+  background: #E6F7F4;
+  color: #34AC98;
+  font-size: 0.9rem; /* Diperbesar dari 0.75rem */
+  font-weight: 800;
+  padding: 0.45rem 0.9rem;
+  border-radius: 50px;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+/* ==========================================
+   HERO SECTION (TEKS & STATS LEBIH BESAR)
+   ========================================== */
+.hero {
+  width: 100%;
+  padding: 4.5rem 0;
+  background: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.hero-title {
+  font-size: 3rem; /* Diperbesar dari 2.6rem */
+  font-weight: 800;
+  color: #0B2240;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+.hero-desc {
+  color: #64748B;
+  font-size: 1.25rem; /* Diperbesar dari 1.05rem */
+  margin-bottom: 1.8rem;
+  line-height: 1.6;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.stat-val {
+  display: block;
+  font-size: 1.75rem; /* Diperbesar dari 1.4rem */
+  font-weight: 800;
+  color: #0B2240;
+}
+
+.stat-lbl {
+  font-size: 0.95rem; /* Diperbesar dari 0.8rem */
+  color: #64748B;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   HERO IMAGE & FLOATING CARD
+   ========================================== */
+.hero-img-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.hero-img {
+  width: 100%;
+  height: 560px; /* Ditinggiin dari 520px */
+  min-height: 500px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  display: block;
+}
+
+.floating-card {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  padding: 1rem 1.4rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.floating-circle {
+  background: #E6F7F4;
+  color: #34AC98;
+  font-weight: 800;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   SECTIONS LAIN
+   ========================================== */
+.restorasi-section,
+.paths-section {
+  width: 100%;
+  padding: 5rem 0;
+  background-color: #f8fafc;
+}
+
+.comparison-section {
+  width: 100%;
+  padding: 5rem 0;
+  background: #ffffff;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.section-title {
+  font-size: 2.4rem; /* Diperbesar dari 2rem */
+  color: #0B2240;
+  font-weight: 800;
+  margin: 0.6rem 0;
+}
+
+.section-subtitle {
+  color: #64748B;
+  font-size: 1.15rem; /* Diperbesar dari 1rem */
+}
+
+/* ==========================================
+   CARDS & GRIDS (DENGAN KOTAK PUTIH & FONT PROPORSI)
+   ========================================== */
+.ba-grid,
+.comp-grid,
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.ba-card,
+.path-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+/* Perbaikan gambar agar tidak gepeng karena ada kotak putih di bawahnya */
+.ba-card img,
+.path-card img {
+  width: 100%;
+  height: 450px; /* Ditinggiin dari 360px ke 450px agar tinggi gambar seimbang */
+  min-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.ba-card-body,
+.path-card-body {
+  padding: 2rem; /* Kotak putih di bawah gambar lebih lega */
+}
+
+.ba-card-body h4,
+.path-card-body h3 {
+  font-size: 1.25rem !important; /* Judul kartu diperbesar */
+  margin-top: 0.6rem;
+}
+
+.ba-card-body p,
+.path-card-body p {
+  font-size: 1rem !important; /* Teks deskripsi kartu diperbesar */
+}
+
+.comp-card {
+  background: #f8fafc;
+  padding: 2.5rem;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+}
+
+.comp-card.bad {
+  border-top: 5px solid #EF4444;
+}
+
+.comp-card.good {
+  border-top: 5px solid #34AC98;
+}
+
+.comp-list {
+  list-style: none;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.comp-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 2.2rem;
+}
+
+.comp-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2rem;
+}
+
+.comp-title {
+  font-weight: 700;
+  font-size: 1.1rem; /* Diperbesar dari 0.95rem */
+  color: #0B2240;
+}
+
+.comp-desc {
+  font-size: 0.95rem; /* Diperbesar dari 0.85rem */
+  color: #64748B;
+}
+
+/* ==========================================
+   BOTTOM BANNER
+   ========================================== */
+.bottom-banner {
+  background: #0B2240;
+  color: #ffffff;
+  padding: 3rem 4rem;
+  border-radius: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 4rem 0;
+}
+
+.bottom-banner h3 {
+  font-size: 1.65rem !important;
+}
+
+.bottom-banner p {
+  font-size: 1.05rem !important;
+}
+
+/* ==========================================
+   RESPONSIVE (MOBILE & TABLET)
+   ========================================== */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .hero-grid,
+  .ba-grid,
+  .comp-grid,
+  .paths-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-img {
+    height: 380px;
+    min-height: auto;
+  }
+
+  .ba-card img,
+  .path-card img {
+    height: 320px;
+  }
+
+  .bottom-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
