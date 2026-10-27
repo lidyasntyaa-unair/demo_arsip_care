@@ -6,22 +6,34 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('username', 50);
+            $table->string('email', 100)->unique();
+            $table->string('no_telepon', 100)->nullable();
+            $table->string('password', 255);
+            $table->enum('role', ['admin', 'konservator', 'user'])->default('user');
+            $table->string('status', 30)->default('Aktif');
+            $table->rememberToken(); //
+            $table->timestamp('created_at')->useCurrent();
+        });
+
+        // Skema tabel sessions bawaan Laravel
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->foreignId('user_id')->nullable()->index();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->longText('payload');
+            $table->integer('last_activity')->index();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('user');
+        Schema::dropIfExists('sessions');
+        Schema::dropIfExists('users');
     }
 };

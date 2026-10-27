@@ -6,20 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('konsultasi_konservator', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_konsultasi');
+            $table->text('pertanyaan');
+            $table->text('jawaban')->nullable();
+            $table->string('nama_file', 255)->nullable();
+            $table->string('path_file', 255)->nullable();
+            $table->string('tipe_file', 50)->nullable();
+            $table->integer('ukuran_file')->nullable();
+            $table->string('status_konsultasi', 30)->default('menunggu_jawaban');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('konsultasi_konservator');

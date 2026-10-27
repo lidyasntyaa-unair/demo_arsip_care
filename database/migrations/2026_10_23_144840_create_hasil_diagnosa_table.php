@@ -6,22 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('hasil_diagnosa', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('laporan_medis_arsip', function (Blueprint $table) {
+            $table->id('id_laporan');
+            $table->string('registrasi_berkas', 100);
+            $table->decimal('estimasi_derajat_asam', 3, 1);
+            $table->integer('indeks_kerapuhan_serat');
+            $table->string('status_infeksi_biologis', 50);
+            $table->text('rekomendasi_prosedur_kuratif');
+            $table->enum('pilihan_langkah_pemulihan', ['DIY', 'Profesional']);
+            $table->text('rekomendasi_solusi_diy_mandiri');
+            $table->text('solusi_profesional');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('hasil_diagnosa');
+        Schema::dropIfExists('laporan_medis_arsip');
     }
 };

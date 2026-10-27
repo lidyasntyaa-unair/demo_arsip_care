@@ -6,22 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('analisis', function (Blueprint $table) {
-            $table->id();
+        Schema::create('analisis_dokumen', function (Blueprint $table) {
+            $table->id('id_analisis');
+            $table->string('nama_file');
+            $table->string('path_file')->nullable();
+            $table->decimal('ukuran_file_mb', 8, 2);
+            $table->string('tipe_file', 50);
+            $table->enum('status_analisis', ['siap_dianalisis', 'proses', 'selesai'])->default('siap_dianalisis');
+            $table->text('hasil_analisis')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('analisis');
+        Schema::dropIfExists('analisis_dokumen');
     }
 };

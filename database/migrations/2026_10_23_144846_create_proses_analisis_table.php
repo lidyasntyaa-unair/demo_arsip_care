@@ -6,22 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('proses_analisis', function (Blueprint $table) {
+        Schema::create('dossier_analisis', function (Blueprint $table) {
             $table->id();
+            $table->string('nomor_dossier', 50)->unique();
+            $table->string('nama_file');
+            $table->text('path_gambar');
+            $table->enum('status_analisis', ['pending', 'processing', 'completed'])->default('pending');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('proses_analisis');
+        Schema::dropIfExists('dossier_analisis');
     }
 };

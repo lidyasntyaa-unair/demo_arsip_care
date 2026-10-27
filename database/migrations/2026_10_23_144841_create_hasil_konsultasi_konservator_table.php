@@ -6,22 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('hasil_konsultasi_konservator', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('riwayat_konsultasi', function (Blueprint $table) {
+            $table->id('id_riwayat');
+            $table->unsignedBigInteger('id_user');
+            $table->string('judul_obrolan', 255);
+            $table->enum('status_obrolan', ['Aktif', 'Arsip'])->default('Aktif');
+            $table->timestamp('created_at')->useCurrent();
+        });
+
+        Schema::create('kartu_rekomendasi', function (Blueprint $table) {
+            $table->id('id_rekomendasi');
+            $table->string('judul_layanan', 255);
+            $table->text('deskripsi_layanan');
+            $table->string('estimasi_waktu', 150);
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('hasil_konsultasi_konservator');
+        Schema::dropIfExists('kartu_rekomendasi');
+        Schema::dropIfExists('riwayat_konsultasi');
     }
 };

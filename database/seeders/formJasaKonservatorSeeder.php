@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PengajuanKonservatorSeeder extends Seeder
+class formJasaKonservatorSeeder extends Seeder
 {
     public function run(): void
     {
@@ -16,8 +16,7 @@ class PengajuanKonservatorSeeder extends Seeder
                 'dimensi_fisik' => '21 x 29.7 cm',
                 'tahun_dokumen' => 2010,
                 'no_dokumen' => 'IJZ-2010-001',
-                'narasi_kerusakan' =>
-                    'Kertas menguning dan sedikit robek.',
+                'narasi_kerusakan' => 'Kertas menguning dan sedikit robek.',
                 'foto_tampak_depan' => 'foto/depan_1.jpg',
                 'foto_tampak_belakang' => null,
                 'foto_closeup_makro' => 'foto/detail_1.jpg',
@@ -35,8 +34,7 @@ class PengajuanKonservatorSeeder extends Seeder
                 'dimensi_fisik' => '30 x 20 cm',
                 'tahun_dokumen' => 1995,
                 'no_dokumen' => 'SHM-1995-002',
-                'narasi_kerusakan' =>
-                    'Dokumen mengalami noda air dan lipatan.',
+                'narasi_kerusakan' => 'Dokumen mengalami noda air dan lipatan.',
                 'foto_tampak_depan' => 'foto/depan_2.jpg',
                 'foto_tampak_belakang' => 'foto/belakang_2.jpg',
                 'foto_closeup_makro' => 'foto/detail_2.jpg',
@@ -45,25 +43,6 @@ class PengajuanKonservatorSeeder extends Seeder
                 'persetujuan_pemohon' => true,
                 'tanggal_pengajuan' => '2026-10-21 10:30:00',
                 'status_pengajuan' => 'ditinjau',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'id_pengajuan' => 3,
-                'jenis_dokumen' => 'naskah_kuno',
-                'dimensi_fisik' => '25 x 18 cm',
-                'tahun_dokumen' => 1950,
-                'no_dokumen' => 'NK-1950-003',
-                'narasi_kerusakan' =>
-                    'Kertas rapuh dan terdapat indikasi jamur.',
-                'foto_tampak_depan' => 'foto/depan_3.jpg',
-                'foto_tampak_belakang' => 'foto/belakang_3.jpg',
-                'foto_closeup_makro' => 'foto/detail_3.jpg',
-                'metode_logistik' => 'mandiri',
-                'biaya_logistik' => 0,
-                'persetujuan_pemohon' => true,
-                'tanggal_pengajuan' => '2026-10-22 14:00:00',
-                'status_pengajuan' => 'diproses',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

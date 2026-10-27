@@ -5,37 +5,34 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class KatalogSeeder extends Seeder
+class konsultasiKonservatorSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('katalog')->insert([
+        DB::table('konsultasi_konservator')->insert([
             [
-                'id_produk' => 1,
-                'nama_produk' => 'Kertas Pelindung Arsip Bebas Asam',
-                'harga' => 45000.00,
-                'gambar' => 'produk/kertas_pelindung_arsip.jpg',
-                'link_shopee' => 'https://shopee.co.id/',
-                'badge' => 'STANDAR ARSIP',
-                'created_at' => now(),
+                'id_konsultasi' => 1,
+                'pertanyaan' => 'Cara mengeringkan ijazah basah tanpa merusak tinta tulisan tangan?',
+                'jawaban' => 'Hindari panas langsung dan jangan menggosok permukaan dokumen.',
+                'nama_file' => 'ijazah_basah.pdf',
+                'path_file' => null,
+                'tipe_file' => 'application/pdf',
+                'ukuran_file' => 204800,
+                'status_konsultasi' => 'dijawab',
+                'created_at' => '2026-10-20 09:00:00',
+                'updated_at' => '2026-10-20 09:05:00',
             ],
             [
-                'id_produk' => 2,
-                'nama_produk' => 'Map Penyimpanan Dokumen',
-                'harga' => 30000.00,
-                'gambar' => 'produk/map_penyimpanan.jpg',
-                'link_shopee' => 'https://shopee.co.id/',
-                'badge' => 'REKOMENDASI',
-                'created_at' => now(),
-            ],
-            [
-                'id_produk' => 3,
-                'nama_produk' => 'Paket Perlengkapan Perawatan Arsip',
-                'harga' => 85000.00,
-                'gambar' => 'produk/paket_perawatan_arsip.jpg',
-                'link_shopee' => 'https://shopee.co.id/',
-                'badge' => 'PAKET ARSIPCARE',
-                'created_at' => now(),
+                'id_konsultasi' => 2,
+                'pertanyaan' => 'Bagaimana menangani noda jamur pada sertifikat tanah kuno?',
+                'jawaban' => null,
+                'nama_file' => null,
+                'path_file' => null,
+                'tipe_file' => null,
+                'ukuran_file' => null,
+                'status_konsultasi' => 'menunggu_jawaban',
+                'created_at' => '2026-10-21 10:30:00',
+                'updated_at' => '2026-10-21 10:30:00',
             ],
         ]);
     }

@@ -6,20 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('asesmen', function (Blueprint $table) {
             $table->id();
+            $table->string('foto', 255)->nullable();
+            $table->json('gejala_kerusakan_fisik');
+            $table->enum('jenis_dokumen', [
+                'pendidikan_akademik',
+                'kependudukan',
+                'kepemilikan_aset',
+                'pernikahan_keluarga',
+                'legalitas_keuangan',
+                'naskah_arsip_kuno',
+            ]);
+            $table->year('tahun')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('asesmen');

@@ -6,20 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('katalog', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_produk');
+            $table->string('nama_produk', 255);
+            $table->decimal('harga', 12, 2);
+            $table->string('gambar', 255);
+            $table->string('link_shopee', 255);
+            $table->string('badge', 50)->default('STANDAR ARSIP');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('katalog');

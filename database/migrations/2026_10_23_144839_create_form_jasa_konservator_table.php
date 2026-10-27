@@ -6,22 +6,36 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('form_jasa_konservator', function (Blueprint $table) {
-            $table->id();
+        Schema::create('pengajuan_konservator', function (Blueprint $table) {
+            $table->id('id_pengajuan');
+            $table->enum('jenis_dokumen', [
+                'pendidikan',
+                'kependudukan',
+                'kepemilikan',
+                'pernikahan',
+                'legalitas',
+                'naskah_kuno',
+            ]);
+            $table->string('dimensi_fisik', 50);
+            $table->year('tahun_dokumen');
+            $table->string('no_dokumen', 100)->nullable();
+            $table->text('narasi_kerusakan');
+            $table->string('foto_tampak_depan', 255)->nullable();
+            $table->string('foto_tampak_belakang', 255)->nullable();
+            $table->string('foto_closeup_makro', 255)->nullable();
+            $table->enum('metode_logistik', ['brankas', 'mandiri'])->default('mandiri');
+            $table->decimal('biaya_logistik', 12, 2)->default(0);
+            $table->boolean('persetujuan_pemohon')->default(false);
+            $table->dateTime('tanggal_pengajuan')->useCurrent();
+            $table->string('status_pengajuan', 30)->default('menunggu_verifikasi');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('form_jasa_konservator');
+        Schema::dropIfExists('pengajuan_konservator');
     }
 };
