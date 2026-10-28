@@ -180,7 +180,7 @@
           <div class="path-card-body">
             <h3 style="font-size: 1.1rem; color: var(--primary-dark);">Konservasi Fisik & Restorasi Lab</h3>
             <p style="font-size: 0.85rem; color: var(--slate-600); margin-top: 0.5rem;">Tindakan restorasi kuratorial intensif untuk dokumen yang rusak parah, tersemat rapuh, atau rapuh bencana.</p>
-            <a href="{{ url('/konservator') }}" class="btn-primary" style="margin-top: 1.25rem; background: var(--primary-dark);">Booking Layanan Lab &rarr;</a>
+            <a href="{{ url('/konsultasi-konservator') }}" class="btn-primary" style="margin-top: 1.25rem; background: var(--primary-dark);">Booking Layanan Lab &rarr;</a>
           </div>
         </div>
       </div>

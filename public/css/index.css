@@ -168,15 +168,19 @@ body {
 }
 
 .hero-img {
-  width: 100%;
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  width: 415px !important;  /* Bebas ganti lebar fotonya (misal: 300px, 400px, dll) */
+  height: 300px !important; /* Bebas ganti tinggi fotonya (misal: 250px, 350px, dll) */
+  object-fit: cover !important;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  display: block;
+  margin: 0 auto;           /* Biar posisi fotonya tetap rapi di tengah */
 }
 
 .floating-card {
   position: absolute;
   bottom: 1.5rem;
-  left: 1.5rem;
+  left: 2.5rem;
   background: var(--white);
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;

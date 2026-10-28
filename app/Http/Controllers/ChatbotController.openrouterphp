@@ -1,0 +1,106 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Throwable;
+
+class ChatbotController extends Controller
+{
+    public function index()
+    {
+        return view('konsultasi_konservator.konsultasi_konservator');
+    }
+
+    public function sendMessage(Request $request)
+    {
+        $request->validate([
+            'message' => 'required|string',
+            'history' => 'nullable|array'
+        ]);
+
+        $userMessage = $request->input('message');
+        $rawHistory = $request->input('history', []);
+
+        $apiKey = env('OPENROUTER_API_KEY');
+
+        if (!$apiKey) {
+            return response()->json([
+                'success' => false,
+                'reply'   => 'OPENROUTER_API_KEY belum diatur di file .env'
+            ], 200);
+        }
+
+        // 1. System Instruction
+        $messages = [
+            [
+                'role' => 'system',
+                'content' => 'Anda adalah Asisten Konservator dari Arsip Care. Tugas Anda adalah memberikan saran pertolongan pertama, preservasi, dan restorasi arsip/dokumen fisik sesuai standar ANRI dan ISO 11799 secara profesional, ramah, dan solutif.'
+            ]
+        ];
+
+        // 2. History Percakapan
+        if (is_array($rawHistory)) {
+            foreach ($rawHistory as $msg) {
+                if (isset($msg['content']) && isset($msg['role'])) {
+                    $role = ($msg['role'] === 'user') ? 'user' : 'assistant';
+                    $messages[] = [
+                        'role'    => $role,
+                        'content' => $msg['content']
+                    ];
+                }
+            }
+        }
+
+        // 3. Pesan Terbaru
+        $messages[] = [
+            'role'    => 'user',
+            'content' => $userMessage
+        ];
+
+        try {
+            // Tembak Endpoint OpenRouter dengan Model Free-Tier
+            $response = Http::withoutVerifying()
+    ->timeout(30)
+    ->withHeaders([
+        'Authorization' => 'Bearer ' . $apiKey,
+        'Content-Type'  => 'application/json',
+        'HTTP-Referer'  => url('/'),
+        'X-Title'       => 'Demo Arsip Care',
+    ])
+    ->post('https://openrouter.ai/api/v1/chat/completions', [
+        // Opsi 1 (Rekomendasi Utama): Auto-router memilihkan model gratisan yang sedang aktif
+        'model'       => 'openrouter/auto',
+
+        // ALTERNATIF Jika 'openrouter/auto' ingin diganti spesifik model gratis aktif:
+        // 'model'    => 'deepseek/deepseek-r1:free',
+        // 'model'    => 'qwen/qwen-2.5-coder-32b-instruct:free',
+
+        'messages'    => $messages,
+        'temperature' => 0.7,
+    ]);
+
+            if ($response->successful()) {
+                $body = $response->json();
+                $replyText = $body['choices'][0]['message']['content'] ?? 'Tidak ada respon dari AI.';
+
+                return response()->json([
+                    'success' => true,
+                    'reply'   => $replyText
+                ]);
+            }
+
+            return response()->json([
+                'success' => false,
+                'reply'   => 'ERR_API: ' . $response->body()
+            ], 200);
+
+        } catch (Throwable $e) {
+            return response()->json([
+                'success' => false,
+                'reply'   => 'ERR_DETAIL: ' . $e->getMessage()
+            ], 200);
+        }
+    }
+}

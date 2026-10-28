@@ -22,7 +22,7 @@
         <a href="{{ url('/') }}">Beranda</a>
         <a href="{{ url('/asesmen') }}" class="active">Konsultasi</a>
         <a href="{{ url('/katalog') }}">Katalog</a>
-        <a href="{{ url('/konservator') }}">Jasa Konservator</a>
+        <a href="{{ url('/konsultasi-konservator') }}">Jasa Konservator</a>
       </div>
     </div>
   </nav>
@@ -64,7 +64,7 @@
       <div class="indicator-card">
         <span class="indicator-label">Prosedur Kuratif Utama</span>
         <strong style="font-size: 1.1rem; color: var(--primary-dark); font-weight: 800; display: block; margin-top: 0.25rem;" id="curativeProcedure">Deasidifikasi + Mending</strong>
-        <span style="font-size: 0.7rem; color: var(--teal-accent); font-weight: 700;">Standar ISO 11799 Kearsipan</span>
+        <span style="font-size: 0.7refm; color: var(--teal-accent); font-weight: 700;">Standar ISO 11799 Kearsipan</span>
       </div>
 
     </div>
@@ -107,7 +107,7 @@
           </ul>
         </div>
 
-        <a href="{{ url('/konservator') }}" class="btn-action-primary">
+        <a href="{{ url('/konsultasi-konservator') }}" class="btn-action-primary">
           💼 Pesan Jasa Konservator Sekarang &rarr;
         </a>
       </div>

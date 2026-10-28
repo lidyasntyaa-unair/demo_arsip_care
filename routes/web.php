@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KonservatorController;
 use App\Http\Middleware\IsAdmin;
+use App\Http\Controllers\ChatbotController;
 
 // Root & Landing Page
 Route::get('/', function () {
@@ -60,9 +61,18 @@ Route::get('/form-jasa-konservator', function () {
 })->name('form-jasa-konservator');
 
 // Konsultasi Konservator & Hasil
-Route::get('/konsultasi-konservator', function () {
-    return view('konsultasi_konservator.konsultasi_konservator');
-})->name('konsultasi-konservator');
+// Route::get('/konsultasi-konservator', [ChatbotController::class, 'index'])->name('konservator.index');
+// Route::post('/chatbot/send', [ChatbotController::class, 'sendMessage'])->name('chatbot.send');
+
+// Route::get('/konsultasi-konservator', [ChatbotController::class, 'index'])->name('konsultasi_konservator.konsultasi_konservator');
+// Route::post('/chatbot/send', [ChatbotController::class, 'sendMessage'])->name('chatbot.send');
+
+// <?php
+
+// use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\ChatbotController;
+
+Route::get('/konsultasi-konservator', [ChatbotController::class, 'index'])->name('konsultasi-konservator');
 
 Route::get('/hasil-konsultasi-konservator', function (Request $request) {
     return view('hasil_konsultasi_konservator.hasil_konsultasi_konservator');

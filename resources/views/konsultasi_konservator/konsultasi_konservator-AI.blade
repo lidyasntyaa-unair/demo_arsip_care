@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Konsultasi Konservator - Arsip Care</title>
+    <link rel="stylesheet" href="{{ asset('css/konsultasi_konservator.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="brand-logo">
+                <div>
+                    <span class="brand-title">Arsip Care</span>
+                    <span class="brand-subtitle">Preservasi & Restorasi Arsip</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="#">Beranda</a>
+                <a href="#" class="active">Konsultasi AI</a>
+                <a href="#">Katalog</a>
+                <a href="#">Jasa Konservator</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTAINER UTAMA -->
+    <div class="chat-app-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <button type="button" class="btn-new-chat" id="btnNewChat">+ Obrolan Baru</button>
+            <div class="sidebar-section">
+                <span class="sidebar-title">RIWAYAT KONSULTASI</span>
+                <div class="chat-history-item active">
+                    <strong>Sesi Konsultasi Konservator</strong>
+                    <small>Aktif • ChatGPT (GPT-4o Mini)</small>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="chat-main-content">
+            <!-- SUB HEADER -->
+            <div class="conservator-sub-header">
+                <div class="sub-header-left">
+                    <div>
+                        <h3>Asisten Konservator AI</h3>
+                        <p>Standar ANRI & ISO 11799 | Powered by ChatGPT</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MESSAGES CONTAINER -->
+            <div class="chat-messages-container" id="chatMessages">
+                <div class="chat-bubble chat-bubble-model">
+                    Halo! Saya Asisten Konservator Arsip Care. Ada masalah atau pertanyaan terkait perawatan, preservasi, atau restorasi dokumen fisik Anda?
+                </div>
+            </div>
+
+            <!-- QUICK PROMPTS -->
+            <div class="quick-prompts-grid" id="quickPrompts">
+                <div class="prompt-card">
+                    <span class="prompt-icon">📜</span>
+                    <p>Bagaimana cara merawat kertas surat tanah yang mulai menguning?</p>
+                </div>
+                <div class="prompt-card">
+                    <span class="prompt-icon">💧</span>
+                    <p>Bagaimana penanganan awal sertifikat yang basah terkena air?</p>
+                </div>
+            </div>
+
+            <!-- INPUT FORM -->
+            <div class="chat-input-wrapper">
+                <form id="chatForm" class="chat-form">
+                    <input type="text" id="chatInput" placeholder="Ketik masalah dokumen fisik Anda di sini..." autocomplete="off" required>
+                    <button type="submit" class="btn-send" id="btnSend">Kirim</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- SCRIPT CONFIG -->
+    <script>
+        window.routes = {
+            chatbotSend: "{{ route('chatbot.send') }}"
+        };
+    </script>
+    <script src="{{ asset('js/konsultasi_konservator.js') }}"></script>
+</body>
+</html>
